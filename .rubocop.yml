@@ -1,0 +1,25 @@
+#inherit_from: .rubocop_todo.yml
+
+plugins:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "bin/*"
+    - "app/javascript/**/*"
+    - "vendor/**/*"
+    - "*"
+  NewCops: enable
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Rails/I18nLocaleTexts:
+  Enabled: false

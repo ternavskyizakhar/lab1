@@ -1,0 +1,41 @@
+<% content_for :title, "New feedback form" %>
+
+<h1>New feedback form</h1>
+
+<div class="row align-items-start align-items-center p-3 px-md-4 border-bottom">  
+  <%= form_for @feedback_form do |f|%>
+
+  <p>
+    Email <br>
+    <%= f.text_field(:email, {:class =>'form-control  w-25'}) %>
+  </p>
+  <% if @feedback_form.errors[:email].any? %>
+    <div class="alert alert-danger">
+      <%= @feedback_form.errors.full_messages_for(:email).first %>
+    </div>
+  <% end %>
+
+  <p>
+    Subscription <br>
+    <%= f.check_box(:subscription, {:class =>'form-check'}) %>
+  </p>
+
+  <p>
+    Text <br>
+    <%= f.text_area(:text, {:class =>'form-control'}) %>
+  </p>
+  <% if @feedback_form.errors[:text].any? %>
+    <div class="alert alert-danger">
+      <%= @feedback_form.errors.full_messages_for(:text).first %>
+    </div>
+  <% end %>
+
+  <%= f.submit({:class =>'btn btn-success'}) %>
+  <% end %>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Back to feedback forms", feedback_forms_path, class: "btn btn-primary" %>
+</div>
